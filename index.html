@@ -16,13 +16,11 @@
         document.getElementById("dataForm").addEventListener("submit", function(event) {
     event.preventDefault();
     var formData = new FormData(event.target);
-    fetch("https://script.google.com/macros/library/d/19HFzwM9D6FYUS7a-4qU2nABkS_KJ3tCI2bT7k-wPSPdoUaoqTVCoWVG3/1", {
+    fetch("https://script.google.com/macros/s/AKfycbyGnfLzLO8lDOfYlGtJp7IErcTIBqNtglHfRQ3xT1yyyhgGY6NhnexNDZolczSe7384/exec", {
         method: "POST",
-        body: new URLSearchParams({
-        nome: "Teste Manual",
-        email: "teste@email.com"
+        body: new URLSearchParams(formData)
     })
-    }).then(response => response.text())
+    .then(response => response.text())
       .then(data => console.log(data))
       .catch(error => console.error("Erro:", error));
 });
