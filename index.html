@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <form id="dataForm">
-        <input type="text" name="nome" placeholder="Digite seu nome" required>
-        <input type="email" name="email" placeholder="Digite seu email" required>
-        <button type="submit">Enviar</button>
+        <input type="number" name="nome" placeholder="Digite seu nome" required>
+        <input type="number" name="email" placeholder="Digite seu email" required>
+        <button type="submit" id="buscarDados">Enviar</button>
     </form>
 
-    <script>
-        document.getElementById("dataForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var formData = new FormData(event.target);
-    fetch("https://script.google.com/macros/s/AKfycbyGnfLzLO8lDOfYlGtJp7IErcTIBqNtglHfRQ3xT1yyyhgGY6NhnexNDZolczSe7384/exec", {
-        method: "POST",
-        body: new URLSearchParams(formData)
-    })
-    .then(response => response.text())
-      .then(data => console.log(data))
-      .catch(error => console.error("Erro:", error));
-});
-    </script>
+    <form id="dataForm1">
+        <p>Linha: <input type="number" id="linha" placeholder="Digite a linha" required>
+        Coluna: <input type="number" id="coluna" placeholder="Digite a coluna" required></p>
+        <button type="button" >Buscar Dados</button>
+    </form>
+
+
+    <p id="resultado"> Retorno busca</p>
+
+    <script src="AppsRev2.js"></script>
     
 </body>
 </html>
